@@ -30,3 +30,4 @@ class square:public shape{
 		void draw();
 		~square();
 };
+

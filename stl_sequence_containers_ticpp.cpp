@@ -1,5 +1,6 @@
 #include "stl_sequence_containers_ticpp.h"
 
+
 void set_simple_int_test(){
 	set<int> intset;
 	for (int i = 0; i < 25; i++){
@@ -82,9 +83,11 @@ void string_container_test(){
 	typedef vector<string> container;
 	string line;
 	container strings;
+
 	while(getline(in, line)){
 		strings.push_back(line);
 	}
+
 	int i = 1;
 	container::iterator w;
 	for (w=strings.begin(); w!= strings.end(); w++){
@@ -96,12 +99,15 @@ void string_container_test(){
 	copy(strings.begin(), strings.end(), ostream_iterator<string>(cout, "\n"));
 }
 
+
 int main(){
+
 	set_simple_int_test();
 	set_simple_string_test();
 
 	shape_classes_test();
 
 	string_container_test();
+
 	return 0;
 }
