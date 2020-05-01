@@ -1,3 +1,4 @@
 # Data-Structures-and-Algorithms
 
-Practice questions are uploaded here
+- problems solving in c++
+- Advanced C++ concepts learning
