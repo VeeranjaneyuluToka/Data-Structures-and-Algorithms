@@ -99,6 +99,31 @@ void string_container_test(){
 	copy(strings.begin(), strings.end(), ostream_iterator<string>(cout, "\n"));
 }
 
+long Noisy::create = 0;
+long Noisy::copycons = 0;
+long Noisy::assign = 0;
+
+Noisy::Noisy():id(create++){
+	cout << "d[" << id << "]";
+}
+
+Noisy::Noisy(const Noisy& rv):id(rv.id){
+	cout << "c[" << id << "]";
+	copycons++;
+}
+
+Noisy& Noisy::operator=(const Noisy& rv){
+	cout << "(" << id << ")=[" << rv.id << "]";
+	id = rv.id;
+	assign++;
+
+	return *this;
+}
+
+/*
+bool Noisy::operator<(const Noisy& lv){
+	return lv.id < this->id;
+}*/
 
 int main(){
 

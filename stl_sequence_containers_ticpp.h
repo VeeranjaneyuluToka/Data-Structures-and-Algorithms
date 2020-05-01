@@ -31,3 +31,30 @@ class square:public shape{
 		~square();
 };
 
+class Noisy{
+	static long create, assign, copycons, destroy;
+	long id;
+	public:
+		Noisy();
+		Noisy(const Noisy& rv);
+		Noisy& operator=(const Noisy& rv);
+
+		~Noisy();
+
+		friend bool operator<(const Noisy& lv, const Noisy& rv){return lv.id < rv.id;}
+		friend bool operator==(const Noisy& lv, const Noisy& rv);
+		friend ostream& operator<<(ostream& os, const Noisy& n);
+
+		friend class NoisyReport;
+};
+
+struct NoisyGen{
+	Noisy operator()();
+};
+
+class NoisyReport{
+	static NoisyReport nr;
+	NoisyReport(); //private constructor
+	public:
+		~NoisyReport();
+};
